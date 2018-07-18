@@ -28,7 +28,7 @@ RUN apt-get update && apt-get -y install \
 	&& mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
 	&& sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/dotnetdev.list' \
 	&& apt-get update \
-	&& apt-get -y apt-get install dotnet-sdk-2.0.0 \
+	&& apt-get -y install dotnet-sdk-2.0.0 \
 	&& apt-get -y install dotnet-sdk-2.1 \
 	&& dotnet new -i Amazon.Lambda.Templates::* \
 	&& curl -sL https://deb.nodesource.com/setup_10.x | -E bash - \
