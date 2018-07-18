@@ -1,5 +1,5 @@
 # Jenkins ready for .NET Core CI
-Dockerized Jenkins ready for continuous deployment of netcore apps in Amazon ECS.
+Dockerized Jenkins ready for continuous deployment of netcore & react apps in Amazon ECS.
 
 
 # Usage
