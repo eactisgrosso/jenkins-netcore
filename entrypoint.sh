@@ -1,5 +1,4 @@
-
-#!/bin/sh
+#!/bin/bash
 
 set -x
 # get gid of docker socket file
