@@ -10,17 +10,13 @@ RUN apt-get update && apt-get -y install \
 	unzip \
 	zip \
 	apt-transport-https \
-    	ca-certificates \
-    	gnupg2 \
-    	software-properties-common \
+    ca-certificates \
+    gnupg2 \
+    software-properties-common \
 	libunwind8 \ 
 	gettext \ 
-	jq
+	jq \
 	&& cd /tmp \ 
-
-# Install Nodejs			
-RUN	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
-	&& sudo apt-get install -y nodejs
 
 # Install AWS CLI			
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \ 
@@ -38,7 +34,9 @@ RUN	curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID"
 RUN	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg \
 	&& mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
 	&& sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/dotnetdev.list' \
-	&& apt-get update && apt-get -y apt-get install dotnet-sdk-2.0.0 && apt-get -y install dotnet-sdk-2.1	\
+	&& apt-get update \
+	&& apt-get -y apt-get install dotnet-sdk-2.0.0 \
+	&& apt-get -y install dotnet-sdk-2.1 \
 	&& dotnet new -i Amazon.Lambda.Templates::*
 
 # Install Hugo	
