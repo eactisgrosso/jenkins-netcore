@@ -28,6 +28,11 @@ RUN apt-get update && apt-get -y install \
 	libappindicator1 \
 	libindicator7
 
+# CHROME
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+	&& apt-get install -f \
+	&& dpkg -i google-chrome*.deb
+	
 # DOCKER
 RUN apt-get update \
  	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
