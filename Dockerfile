@@ -12,12 +12,21 @@ RUN apt-get update && apt-get -y install \
 	unzip \
 	zip \
 	apt-transport-https \
-    ca-certificates \
-    gnupg2 \
-    software-properties-common \
+    	ca-certificates \
+    	gnupg2 \
+    	software-properties-common \
 	libunwind8 \ 
 	gettext \ 
-	jq
+	jq \
+	xvfb \
+	libgtk2.0-0 \
+	libnotify-dev \
+	libgconf-2-4 \
+	libnss3 \
+	libxss1 \
+	libasound2 \
+	libappindicator1 \
+	libindicator7
 
 # DOCKER
 RUN apt-get update \
@@ -65,6 +74,4 @@ COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 ENTRYPOINT ["/entrypoint.sh"]
