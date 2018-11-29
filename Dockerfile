@@ -86,6 +86,7 @@ RUN cd var/lib \
 
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE 1
+ENV ANDROID_HOME /var/lib/android-sdk
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
